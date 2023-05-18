@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	_ "log"
 	"net"
-	_ "os"
 	"os/exec"
 
 	"github.com/gofiber/fiber/v2"
@@ -42,6 +40,7 @@ func openUrl(c *fiber.Ctx) error {
 		fmt.Println("Error parsing request:", err)
 		goto redirect
 	}
+
 	go func() {
 		fmt.Println("Opening url: ", urlParam.Url)
 		killChromium()
